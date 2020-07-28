@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration>
+<!--输出到控制台-->
+<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <param name="Threshold" value="DEBUG"/>
+    <!--
+        %n - 换行
+        %m - 日志内容
+        %p - 日志级别(FATAL， ERROR，WARN， INFO，DEBUG or custom)
+        %r - 程序启动到现在的毫秒数
+        %t - 当前线程名
+        %d - 日期和时间, 一般使用格式 %d{yyyy-MM-dd HH:mm:ss， SSS}
+        %l - 输出日志事件的发生位置， 同 %F%L%C%M
+        %F - java 源文件名
+        %L - java 源码行数
+        %C - java 类名，%C{1} 输出最后一个元素
+        %M - java 方法名
+     -->
+    <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] - %t - %l - %m%n"/>
+    </layout>
+</appender>
+<!-- 输出到文件 -->
+<!--<appender name="fileAppenderInfo" class="org.apache.log4j.DailyRollingFileAppender">-->
+    <!--<param name="File" value="/data/logs/reptile/info.log" />-->
+    <!--<param name="DatePattern" value=".yyyy-MM-dd" />-->
+    <!--<layout class="org.apache.log4j.PatternLayout">-->
+        <!--<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] - %l - %m%n"/>-->
+    <!--</layout>-->
+<!--</appender>-->
+<root>
+    <level value="INFO"/>
+    <appender-ref ref="consoleAppender" />
+    <!--<appender-ref ref="fileAppenderInfo" />-->
+</root>
+</log4j:configuration>
